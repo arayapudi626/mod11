@@ -1,0 +1,9 @@
+Project Overview:
+My project creates a university enrollment simulation which shows how students move through the admission process based on schools or departments. The students progress from statuses of Applied, Admitted and Enrolled. 
+
+Implementation:
+I am going to use std::map to store the department data under a name and the value is a 3D array. I will hold student IDs for each index with std::lists and each index of the array indicates a progress status of a student (0=applied, 1=admitted, 2=enrolled).
+The data will be read from an external file with the department name and student ID.
+
+Simulated events:
+The simulation will focus on the two different types of progress. At each time period, 2 students will from Applied to Admitted and Admitted to Enrolled.
