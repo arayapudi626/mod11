@@ -21,7 +21,7 @@ void print(const Dep& dep){
 }
 
 void simulation(Dep& dep){
-    for (int i = 1; i <= 25; i++){
+    for (int i = 1; i <= 5; i++){
         for (Dep::iterator it = dep.begin(); it != dep.end(); ++it){
             const string& dept = it->first;
             array<list<int>, STATUS>& arr = it->second;
