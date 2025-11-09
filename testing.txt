@@ -1,0 +1,43 @@
+Testing plan:
+
+Testing print(): call print(dep) and confirm output matches
+- create a map with only one department
+- manually add students in Applied, Admitted and Enrolled
+
+Testing simulation(): check 2 students movement to Admitted and Enrolled
+- BME: Applied: 4 students, Admitted: 0, Enrolled: 0
+- Run simulation only for 1 interval
+
+Driver program:
+
+#include <iostream>
+#include <map>
+#include <array>
+#include <list>
+using namespace std;
+
+const int STATUS = 3;
+typedef map<string, array<list<int>, STATUS>> Dep;
+
+void print(const Dep& dep);
+void simulation(Dep& dep);
+
+int main() {
+    Dep dep;
+    //Test data
+    dep["CS"][0].push_back(123456);
+    dep["CS"][0].push_back(234567);
+    dep["CS"][0].push_back(987654);
+    dep["CS"][0].push_back(765432);
+
+    cout << "Before simulation:\n";
+    print(dep);
+
+    // Run only 1 interval for unit testing
+    simulation(dep);
+
+    cout << "After 1 interval:\n";
+    print(dep);
+
+    return 0;
+}
