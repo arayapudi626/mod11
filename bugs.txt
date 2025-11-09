@@ -1,0 +1,10 @@
+1. Fixed for reading an empty file crash with if(!fin)
+2. Added lists for enrolled and admitted to be able to control both
+3. added checks for department or id not to be empty
+4. Noticed admitted output always stays in 0 -> added more students, reduced number of intervals and only newly admitted have to wait 1 interval
+5. merge duplicate id numbers and output an error
+6. running into infinite loop -> needed to add move++ accidentally deleted
+7. in duplicate checking code -> iterator had to be a pointer
+8. in duplicate code -> addedd !duplicate to continue as or student as not been added yet
+9. fixed student id numbers that were misplaced
+10. fixed output formatting
