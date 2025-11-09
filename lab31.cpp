@@ -30,7 +30,7 @@ void simulation(Dep& dep){
 
             // applied to admitted
             int moved = 0;
-            while (moved < 2 && !arr[0].empty()) {
+            while (moved < 1 && !arr[0].empty()) {
                 int id = arr[0].front();
                 arr[0].pop_front();
                 arr[1].push_back(id);
@@ -46,7 +46,7 @@ void simulation(Dep& dep){
                 arr[1].pop_front();
                 arr[2].push_back(id);
                 enrolled.push_back(id);
-                
+                moved++;
                 admittedBegin--;
             }
 
@@ -81,13 +81,15 @@ int main() {
     int id;
 
     while (fin >> dept >> id) {
-        dep[dept][0].push_back(id);
         bool duplicate = false;
         for(list<int>::const_iterator it = dep[dept][0].begin(); it != dep[dept][0].end(); it++){
-            if (it == id) {
+            if (*it == id) {
                 duplicate = true;
                 break;
             }
+        }
+        if (!duplicate) {
+            dep[dept][0].push_back(id);
         }
     }
     fin.close();
