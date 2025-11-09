@@ -13,9 +13,10 @@ void print(const Dep& dep){
     for (Dep::const_iterator it = dep.begin(); it != dep.end(); it++){
     const string&dept = it->first;
     const array<list<int>, STATUS>& arr = it->second;
-    cout << dept << ": Applied=" << arr[0].size() << endl;
-    cout << " Admitted=" << arr[1].size() << endl;
-    cout << " Enrolled=" << arr[2].size() << endl;
+    cout << dept << "\n";
+    cout << "Applied=" << arr[0].size() << endl;
+    cout << "Admitted=" << arr[1].size() << endl;
+    cout << "Enrolled=" << arr[2].size() << endl;
     }
 }
 
@@ -63,7 +64,6 @@ void simulation(Dep& dep){
                 cout << endl;
             }
         }
-        cout << "Interval " << i << " done" << endl;
     }
 }
 
@@ -83,10 +83,11 @@ int main() {
     fin.close();
     
     cout << "intial print: " << endl;
-    print(dep);
-    cout << "Simulation"
-    simulation(dep);
-    print (dep);
+    print(dep); cout <<"\n";
+    cout << "Simulation: " << endl;
+    simulation(dep); cout <<"\n";
+    cout <<"final print: " << endl;
+    print(dep); cout <<"\n";
     return 0;
 
 }
