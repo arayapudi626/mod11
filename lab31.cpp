@@ -39,13 +39,15 @@ void simulation(Dep& dep){
             }
             // need to move people from existing admited
             // admitted to enrolled
+            int admittedBegin = arr[1].size() - admitted.size();
             moved = 0;
-            while (moved < 2 && !arr[1].empty()) {
+            while (moved < 2 && !arr[1].empty() && admittedBegin > 0) {
                 int id = arr[1].front();
                 arr[1].pop_front();
                 arr[2].push_back(id);
                 enrolled.push_back(id);
                 moved++;
+                admittedBegin--;
             }
 
             if (!admitted.empty() || !enrolled.empty()){
