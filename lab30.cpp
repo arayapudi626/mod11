@@ -21,48 +21,52 @@ void print(const Dep& dep){
 
 void simulation(Dep& dep){
     for (int i = 1; i <= 25; i++){
-        for (Dep::iterator it = dep.begin(); it != dep.end(); it++){
+        for (Dep::iterator it = dep.begin(); it != dep.end(); ++it){
+            const string& dept = it->first;
             array<list<int>, STATUS>& arr = it->second;
             list<int> admitted;
             list<int> enrolled;
 
             // applied to admitted
-            int move = 0;
-            while(move < 2) {
+            int moved = 0;
+            while (moved < 2 && !arr[0].empty()) {
                 int id = arr[0].front();
                 arr[0].pop_front();
                 arr[1].push_back(id);
                 admitted.push_back(id);
-                move++;
+                moved++;
             }
-            //admitted to enrolled
-            int move = 0;
-            while(move < 2) {
+            // admitted to enrolled
+            moved = 0;
+            while (moved < 2 && !arr[1].empty()) {
                 int id = arr[1].front();
                 arr[1].pop_front();
                 arr[2].push_back(id);
                 enrolled.push_back(id);
-                move++;
+                moved++;
             }
 
-            if
-            if (!admitted.empty()){
-                cout << "Admitted: ";
-                for (int id: admitted){
-                    cout << id << " ";
-                } 
-            if(!enrolled.empty()){
-                cout << "Enrolled: ";
-                for (int id: enrolled){
-                    cout << id << " ";
+            if (!admitted.empty() || !enrolled.empty()){
+                cout << dept << ": ";
+                if (!admitted.empty()){
+                    cout << "Admitted: ";
+                    for (int id: admitted){
+                        cout << id << " ";
+                    } 
                 }
+                if (!enrolled.empty()){
+                    cout << "Enrolled: ";
+                    for (int id: enrolled){
+                        cout << id << " ";
+                    }
+                }
+                cout << endl;
             }
-            }
-
         }
         cout << "Interval " << i << " done" << endl;
-        }
+    }
 }
+
 
 int main() {
     Dep dep;
@@ -78,7 +82,9 @@ int main() {
     }
     fin.close();
     
+    cout << "intial print: " << endl;
     print(dep);
+    cout << "Simulation"
     simulation(dep);
     print (dep);
     return 0;
