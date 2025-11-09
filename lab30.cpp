@@ -23,12 +23,16 @@ void simulation(Dep& dep){
     for (int i = 1; i <= 25; i++){
         for (Dep::iterator it = dep.begin(); it != dep.end(); it++){
             array<list<int>, STATUS>& arr = it->second;
+            list<int> admitted;
+            list<int> enrolled;
+
             // applied to admitted
             int move = 0;
             while(move < 2) {
                 int id = arr[0].front();
                 arr[0].pop_front();
                 arr[1].push_back(id);
+                admitted.push_back(id);
                 move++;
             }
             //admitted to enrolled
@@ -37,7 +41,22 @@ void simulation(Dep& dep){
                 int id = arr[1].front();
                 arr[1].pop_front();
                 arr[2].push_back(id);
+                enrolled.push_back(id);
                 move++;
+            }
+
+            if
+            if (!admitted.empty()){
+                cout << "Admitted: ";
+                for (int id: admitted){
+                    cout << id << " ";
+                } 
+            if(!enrolled.empty()){
+                cout << "Enrolled: ";
+                for (int id: enrolled){
+                    cout << id << " ";
+                }
+            }
             }
 
         }
