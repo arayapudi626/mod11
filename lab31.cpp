@@ -37,6 +37,7 @@ void simulation(Dep& dep){
                 admitted.push_back(id);
                 moved++;
             }
+            // need to move people from existing admited
             // admitted to enrolled
             moved = 0;
             while (moved < 2 && !arr[1].empty()) {
